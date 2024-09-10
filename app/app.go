@@ -992,6 +992,7 @@ func New(
 			Added: []string{
 				alliancemoduletypes.StoreKey,
 				ibchookstypes.StoreKey,
+				"feeburn",
 				tokenfactorytypes.ModuleName,
 				liquiditytypes.ModuleName,
 				circuittypes.ModuleName,
