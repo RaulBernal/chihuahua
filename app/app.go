@@ -993,6 +993,7 @@ func New(
 				alliancemoduletypes.StoreKey,
 				ibchookstypes.StoreKey,
 				"feeburn",
+				"wasm",
 				tokenfactorytypes.ModuleName,
 				liquiditytypes.ModuleName,
 				circuittypes.ModuleName,
