@@ -169,10 +169,10 @@ import (
 )
 
 const (
-	Bech32Prefix = "chihuahua"
-	Name         = "chihuahua"
-	UpgradeName  = "v8.0.0"
-	NodeDir      = ".chihuahuad"
+	Bech32Prefix = "cosmos"
+	Name         = "ignite-wasm-fix"
+	UpgradeName  = "stickyfingers"
+	NodeDir      = ".ignite-fix-fix"
 )
 
 var (
@@ -990,10 +990,10 @@ func New(
 	if upgradeInfo.Name == UpgradeName && !app.UpgradeKeeper.IsSkipHeight(upgradeInfo.Height) {
 		storeUpgrades := storetypes.StoreUpgrades{
 			Added: []string{
-				//alliancemoduletypes.StoreKey,
-				//ibchookstypes.StoreKey,
-				//tokenfactorytypes.ModuleName,
-				//liquiditytypes.ModuleName,
+				// alliancemoduletypes.StoreKey,
+				// ibchookstypes.StoreKey,
+				tokenfactorytypes.ModuleName,
+				liquiditytypes.ModuleName,
 				circuittypes.ModuleName,
 			},
 			Deleted: []string{},
@@ -1310,7 +1310,7 @@ func (app *App) RegisterUpgradeHandlers(cfg module.Configurator) {
 		return vm, errParams
 	})
 
-	app.UpgradeKeeper.SetUpgradeHandler("v8.0.0", func(ctx context.Context, plan upgradetypes.Plan, vm module.VersionMap) (module.VersionMap, error) {
+	app.UpgradeKeeper.SetUpgradeHandler("stickyfingers", func(ctx context.Context, plan upgradetypes.Plan, vm module.VersionMap) (module.VersionMap, error) {
 		//sdk 47 to sdk 50
 		return app.mm.RunMigrations(ctx, cfg, vm)
 
